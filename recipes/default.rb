@@ -1,4 +1,8 @@
-package "git-core"
+if platform_family?('debian', 'rhel')
+  package "git-core"
+elsif platform_family?('Darwin')
+  package 'git'
+end
 
 directory node.hub.src_path do
   owner "root"
